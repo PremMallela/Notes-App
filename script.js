@@ -15,7 +15,7 @@ function updateNotes(){
     localStorage.setItem("notes",notesList.innerHTML)
 }
 
-notesList.addEventListener("click",(e)=>{  //Event Delegation ,this prevents from adding multiple listeners which would be added when we add listener to individual elements.
+notesList.addEventListener("click",(e)=>{  //Event Delegation ,this prevents from adding multiple listeners whenever we load the page from local Storage,which would've be added if we add listener to individual elements.
     if(e.target.tagName =="IMG"){
         e.target.parentElement.remove();
         updateNotes();
