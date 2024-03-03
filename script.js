@@ -23,8 +23,10 @@ notesList.addEventListener("click",(e)=>{  //Event Delegation ,this prevents fro
     else if(e.target.tagName == "P"){
         const notes = document.querySelectorAll("p");
         notes.forEach((nt)=>{
-            nt.onkeyup = function(){
-                updateNotes();
+            if(nt.onkeyup===undefined){  //to avoid unwanted listeners being attached to every "p" elem, whenever the keypress happens in any one of the "p" elem. 
+                nt.onkeyup = function(){
+                    updateNotes()    
+            }       
         }
     })
 }
